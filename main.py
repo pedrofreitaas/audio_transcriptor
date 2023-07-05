@@ -1,14 +1,9 @@
-"""
-This program converts video into text.
-Works only for portuguese. (Pt-BR)
-"""
-
 from os import remove, mkdir
-import video_converter as vd_conv
-import audio_converter as ad_conv
-import audio_divisor as ad_div
-import audio_transcripter as ad_transc
-import uniter
+import modules.video_converter as vd_conv
+import modules.audio_converter as ad_conv
+import modules.audio_divisor as ad_div
+import modules.audio_transcripter as ad_transc
+import modules.uniter as uniter
 
 def remove_files(list_of_paths: list[str]) -> None:
     for file in list_of_paths:
