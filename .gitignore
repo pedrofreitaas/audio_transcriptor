@@ -1,0 +1,4 @@
+*.txt
+*_dest
+*_src
+*.py
