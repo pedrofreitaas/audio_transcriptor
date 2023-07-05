@@ -1,4 +1,2 @@
-*.txt
-*_dest
-*_src
-*.py
+source
+__pycache__

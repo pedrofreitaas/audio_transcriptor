@@ -1,7 +1,7 @@
 # Audio transcriptor.
 
 ```bash
-Simple script in python to transcript the content of a video.
+Simple script in python to transcript the content of a audio.
 ```
 
 
