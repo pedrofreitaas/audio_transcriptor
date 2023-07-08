@@ -1,9 +1,11 @@
 from moviepy.editor import VideoFileClip
 from os import listdir
 
-def convert_to_mp3(mp4_file, mp3_file):
-    """Converts video (mp4) to sounds (mp3).\n
-       Saves the .mp3 file.\n"""
+def convert_to_mp3(mp4_file: str, mp3_file: str) -> None:
+    """
+    Converts video (mp4) to sounds (mp3).\n
+    Saves the .mp3 file.\n
+    """
     video = VideoFileClip(mp4_file)
     video.audio.write_audiofile(mp3_file, codec='mp3')
 

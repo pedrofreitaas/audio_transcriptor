@@ -18,10 +18,10 @@ def divide_audios_in_folder(folder_path: str, size: float) -> list:
 
         audio = AudioSegment.from_file(folder_path+audio_path, 'wav')
 
-        partes = make_chunks(audio, size)
-        for i, parte in enumerate(partes):
+        parts = make_chunks(audio, size)
+        for i, part in enumerate(parts):
             parte_name = f'{folder_path}{audio_path[:-4]}_{i}.wav'
-            parte.export(parte_name, format='wav')
+            part.export(parte_name, format='wav')
 
         divided_audios.append(folder_path+audio_path)
     
