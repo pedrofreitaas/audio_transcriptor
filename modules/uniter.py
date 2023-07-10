@@ -1,4 +1,5 @@
 from os import listdir
+from choose_folder import choose_folder_from_path
 
 def unite_txts_in_folder(folder_path: str) -> list[str]:
     """
@@ -20,3 +21,5 @@ def unite_txts_in_folder(folder_path: str) -> list[str]:
 
     return united_txts
             
+if __name__ == "__main__":
+    unite_txts_in_folder(choose_folder_from_path())

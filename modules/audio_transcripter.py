@@ -1,5 +1,6 @@
 import speech_recognition as sr
 from os import listdir
+from choose_folder import choose_folder_from_path
 
 def transcript_audios_in_folder(folder_path: str) -> list[str]:
     """
@@ -25,3 +26,6 @@ def transcript_audios_in_folder(folder_path: str) -> list[str]:
             transc_audios.append(folder_path+audio_path)
 
     return transc_audios
+
+if __name__ == "__main__":
+    transcript_audios_in_folder(choose_folder_from_path())

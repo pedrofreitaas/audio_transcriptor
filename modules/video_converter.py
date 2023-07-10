@@ -1,5 +1,6 @@
 from moviepy.editor import VideoFileClip
-from os import listdir
+from os import listdir, scandir, DirEntry
+from choose_folder import choose_folder_from_path
 
 def convert_to_mp3(mp4_file: str, mp3_file: str) -> None:
     """
@@ -16,3 +17,6 @@ def convert_videos_in_folder(folder_path: str) -> None:
     for video_path in mp4_files:
         if video_path[-4:] != ".mp4": continue
         convert_to_mp3(folder_path+"/"+video_path, f"{folder_path}/{video_path[:-4]}.mp3")
+
+if __name__ == '__main__':
+    convert_videos_in_folder(choose_folder_from_path())

@@ -6,6 +6,7 @@ import modules.audio_transcripter as ad_transc
 import modules.uniter as uniter
 
 def remove_files(list_of_paths: list[str]) -> None:
+    """Remove files corresponding to the paths in the parameter.\n"""
     for file in list_of_paths:
         try: remove(file)
         except: pass
@@ -13,7 +14,9 @@ def remove_files(list_of_paths: list[str]) -> None:
 if __name__ == "__main__":
     src_folder = "source/"
     
-    try: mkdir(src_folder)
+    try: 
+        mkdir(src_folder)
+        print('Source folder succesfully generated. Put .mp4/.mp3/.wav files inside for transcription.\n')
     except: pass
 
     remove_files([src_folder+"transcript.txt"])
@@ -25,7 +28,7 @@ if __name__ == "__main__":
     conv_audios = ad_conv.convert_audios_in_folder(src_folder)
     remove_files(conv_audios)
 
-    # divide the audio cause it can be longer than supported
+    # divide the audio, because it can be longer than supported.
     divided_audios = ad_div.divide_audios_in_folder(src_folder, 30)
     remove_files(divided_audios)
 

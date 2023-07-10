@@ -1,10 +1,11 @@
 from pydub import AudioSegment
 from pydub.utils import make_chunks
 from os import listdir
+from choose_folder import choose_folder_from_path
 
 def divide_audios_in_folder(folder_path: str, size: float) -> list:
     """
-    Divides all the audios in the folder into parts that have {size} seconds.\n
+    Divides all the .wav audios in the folder into parts that have {size} seconds.\n
     Returns the list of divided audios.\n
     """
     divided_audios = []
@@ -26,3 +27,6 @@ def divide_audios_in_folder(folder_path: str, size: float) -> list:
         divided_audios.append(folder_path+audio_path)
     
     return divided_audios
+
+if __name__ == "__main__":
+    divide_audios_in_folder(choose_folder_from_path(), float(input('Audio size (seconds): ')))

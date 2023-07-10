@@ -1,2 +1,5 @@
 source
 __pycache__
+*.txt
+*.mp4
+test.py

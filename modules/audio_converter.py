@@ -1,5 +1,6 @@
-from os import listdir
+from os import listdir, scandir, DirEntry
 import soundfile as sf
+from choose_folder import choose_folder_from_path
 
 def convert_audios_in_folder(folder_path: str) -> list[str]:
     """
@@ -18,3 +19,6 @@ def convert_audios_in_folder(folder_path: str) -> list[str]:
         conv_audios.append(folder_path+audio_path)
 
     return conv_audios
+
+if __name__ == '__main__':
+    convert_audios_in_folder(choose_folder_from_path())
