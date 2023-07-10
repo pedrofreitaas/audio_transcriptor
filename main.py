@@ -13,8 +13,6 @@ def remove_files(list_of_paths: list[str]) -> None:
 
 if __name__ == "__main__":
     src_folder = "source/"
-
-    files_created = []
     
     try: 
         mkdir(src_folder)
@@ -35,7 +33,7 @@ if __name__ == "__main__":
     remove_files(audio_conversions)
 
     # transcript each part.
-    trans_results = ad_trans.transcript_audios_in_folder(src_folder)
+    trans_results = ad_trans.transcript_audios_by_paths(division_results)
     remove_files(division_results)
 
     # unite every part.
