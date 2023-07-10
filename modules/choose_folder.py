@@ -1,6 +1,6 @@
-from os import scandir, DirEntry
+from os import scandir, DirEntry, getcwd
 
-def choose_folder_from_path(path: str=".") -> str:
+def choose_folder_from_path(path: str=getcwd()) -> str:
     """
     User input based function.\n
     Lists available *folders* in the given path and makes the user choose for one.\n
