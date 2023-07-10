@@ -1,5 +1,6 @@
 from os import listdir, path, getcwd
-from choose_folder import choose_folder_from_path
+if __name__ != "__main__": from modules.choose_folder import choose_folder_from_path
+else: from choose_folder import *
 
 def unite_txts_in_folder(folder_path: str=getcwd()) -> list[str]:
     """

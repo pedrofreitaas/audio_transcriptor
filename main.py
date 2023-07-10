@@ -1,9 +1,9 @@
-from os import remove, mkdir
+from os import remove, mkdir, getcwd, path
 import modules.video_converter as vd_conv
-import modules.audio_converter as ad_conv
+import modules.txt_uniter as txt_un
+import modules.audio_transcripter as ad_trans
 import modules.audio_divisor as ad_div
-import modules.audio_transcripter as ad_transc
-import modules.uniter as uniter
+import modules.audio_converter as ad_conv
 
 def remove_files(list_of_paths: list[str]) -> None:
     """Remove files corresponding to the paths in the parameter.\n"""
@@ -13,6 +13,8 @@ def remove_files(list_of_paths: list[str]) -> None:
 
 if __name__ == "__main__":
     src_folder = "source/"
+
+    files_created = []
     
     try: 
         mkdir(src_folder)
@@ -22,20 +24,20 @@ if __name__ == "__main__":
     remove_files([src_folder+"transcript.txt"])
 
     # convert the video to audio.
-    vd_conv.convert_videos_in_folder(src_folder)
+    video_conversions = vd_conv.convert_videos_in_folder(src_folder)
 
     # convert the audio to a supported file extension.
-    conv_audios = ad_conv.convert_audios_in_folder(src_folder)
-    remove_files(conv_audios)
+    audio_conversions = ad_conv.convert_audios_in_folder(src_folder)
+    remove_files(video_conversions)
 
     # divide the audio, because it can be longer than supported.
-    divided_audios = ad_div.divide_audios_in_folder(src_folder, 30)
-    remove_files(divided_audios)
+    division_results = ad_div.divide_audios_in_folder(src_folder, 30)
+    remove_files(audio_conversions)
 
     # transcript each part.
-    transc_audios = ad_transc.transcript_audios_in_folder(src_folder)
-    remove_files(transc_audios)
+    trans_results = ad_trans.transcript_audios_in_folder(src_folder)
+    remove_files(division_results)
 
     # unite every part.
-    united_txts = uniter.unite_txts_in_folder(src_folder)
-    remove_files(united_txts)
+    united_txts = txt_un.unite_txts_in_folder(src_folder)
+    remove_files(trans_results)

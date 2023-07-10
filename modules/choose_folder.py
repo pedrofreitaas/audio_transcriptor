@@ -1,4 +1,4 @@
-from os import scandir, DirEntry, getcwd
+from os import getcwd, scandir, DirEntry
 
 def choose_folder_from_path(path: str=getcwd()) -> str:
     """

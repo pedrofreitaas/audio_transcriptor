@@ -1,13 +1,14 @@
 import speech_recognition as sr
 from os import listdir, getcwd, path
-from choose_folder import choose_folder_from_path
+if __name__ != "__main__": from modules.choose_folder import choose_folder_from_path
+else: from choose_folder import *
 
 def transcript_audios_in_folder(folder_path: str=getcwd()) -> list[str]:
     """
     Transcripts all the .wav's in the folder.\n
-    Returns a list with all the converted audios paths.\n
+    Returns a list with the results paths.\n
     """
-    transc_audios = []
+    conversions = []
 
     audio_paths = listdir(folder_path)
 
@@ -25,9 +26,9 @@ def transcript_audios_in_folder(folder_path: str=getcwd()) -> list[str]:
 
             with open(path.join(folder_path, file_name+".txt"),'w', encoding="utf-8") as fl: fl.write(transcp+'\n')
 
-            transc_audios.append(path.join(folder_path,audio_path))
+            conversions.append(path.join(folder_path,file_name+".txt"))
 
-    return transc_audios
+    return conversions
 
 if __name__ == "__main__":
     transcript_audios_in_folder(choose_folder_from_path())
